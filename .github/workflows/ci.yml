@@ -37,7 +37,7 @@ jobs:
       #     petsc_arch: linux-gnu-real64-32
 
       - name: Install dolfiny
-        run: pip install .[all]
+        run: pip install .[all] --break-system-packages
       
       - name: Run plasticity
         working-directory: demo/plasticity
@@ -79,7 +79,7 @@ jobs:
       #     petsc_arch: linux-gnu-real64-32
       
       - name: Install dolfiny
-        run: pip install .[all]
+        run: pip install .[all] --break-system-packages
       
       - name: Run plasticity
         working-directory: demo/plasticity
