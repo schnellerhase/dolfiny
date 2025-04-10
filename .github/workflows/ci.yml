@@ -19,7 +19,7 @@ jobs:
       HDF5_MPI: "ON"
       HDF5_DIR: "/usr/local/"
       PYTHONPATH: "/usr/local/dolfinx-${PETSC_TYPE}/lib/python3.12/dist-packages:/usr/local/lib"
-      LD_LIBRARY_PATH: "/usr/local/petsc/linux-gnu-real64-32/lib/:/usr/local"
+      LD_LIBRARY_PATH: "/usr/local/petsc/linux-gnu-real64-64/lib/:/usr/local"
       DEB_PYTHON_INSTALL_LAYOUT: deb_system
     steps: 
       - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
         uses: jorgensd/actions/install-dolfinx@v0.4
         with:
           ufl: be83aefdc4fceaab5458025703ff8fbb029e0c5a
-          petsc_arch: linux-gnu-real64-32
+          petsc_arch: linux-gnu-real64-64
 
       - name: Install dolfiny
         run: pip install .[all]
@@ -53,7 +53,7 @@ jobs:
       HDF5_MPI: "ON"
       HDF5_DIR: "/usr/local/"
       PYTHONPATH: "/usr/local/dolfinx-${PETSC_TYPE}/lib/python3.12/dist-packages:/usr/local/lib"
-      LD_LIBRARY_PATH: "/usr/local/petsc/linux-gnu-real64-32/lib/:/usr/local"
+      LD_LIBRARY_PATH: "/usr/local/petsc/linux-gnu-real64-64/lib/:/usr/local"
       DEB_PYTHON_INSTALL_LAYOUT: deb_system
     steps: 
       - uses: actions/checkout@v4
@@ -63,7 +63,7 @@ jobs:
         with:
           ufl-repository: firedrakeproject/ufl
           ufl: pbrubeck/fix/indexed-conditional
-          petsc_arch: linux-gnu-real64-32
+          petsc_arch: linux-gnu-real64-64
       
       - name: Install dolfiny
         run: pip install .[all]
