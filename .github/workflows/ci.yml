@@ -27,7 +27,7 @@ jobs:
 
       - name: install custom ufl
         run: !
-          pip uninstall fenics-ufl
+          pip uninstall fenics-ufl -y
           pip install git+https://github.com/FEniCS/ufl.git@be83aefdc4fceaab5458025703ff8fbb029e0c5a
 
       # - name: Install DOLFINx
@@ -68,7 +68,7 @@ jobs:
 
       - name: install custom ufl
         run: !
-          pip uninstall fenics-ufl
+          pip uninstall fenics-ufl -y
           pip install git+https://github.com/firedrakeproject/ufl.git@pbrubeck/fix/indexed-conditional
 
       # - name: Install DOLFINx
