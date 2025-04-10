@@ -6,7 +6,7 @@ jobs:
   test-old-ufl:
     runs-on: ubuntu-latest
     # container: ghcr.io/fenics/dolfinx/dev-env:current-mpich
-    container: dolfinx/dolfinx:nightly
+    container: ghcr.io/fenics/dolfinx/dolfinx:nightly
     # env:
     #   CC: cc
     #   CXX: c++
@@ -26,9 +26,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: install custom ufl
-        run: !
-          pip uninstall fenics-ufl -y
-          pip install git+https://github.com/FEniCS/ufl.git@be83aefdc4fceaab5458025703ff8fbb029e0c5a
+        run: |
+          python3 -m pip uninstall fenics-ufl -y
+          python3 -m pip install git+https://github.com/FEniCS/ufl.git@be83aefdc4fceaab5458025703ff8fbb029e0c5a
 
       # - name: Install DOLFINx
       #   uses: jorgensd/actions/install-dolfinx@v0.4
@@ -37,7 +37,7 @@ jobs:
       #     petsc_arch: linux-gnu-real64-32
 
       - name: Install dolfiny
-        run: pip install .[all] --break-system-packages
+        run: python3 -m pip install .[all]
       
       - name: Run plasticity
         working-directory: demo/plasticity
@@ -46,7 +46,7 @@ jobs:
   test-new-ufl:
     runs-on: ubuntu-latest
     # container: ghcr.io/fenics/dolfinx/dev-env:current-mpich
-    container: dolfinx/dolfinx:nightly
+    container: ghcr.io/fenics/dolfinx/dolfinx:nightly
 
     # env:
     #   CC: cc
@@ -67,9 +67,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: install custom ufl
-        run: !
-          pip uninstall fenics-ufl -y
-          pip install git+https://github.com/firedrakeproject/ufl.git@pbrubeck/fix/indexed-conditional
+        run: |
+          python3 -m pip uninstall fenics-ufl -y
+          python3 -m pip install git+https://github.com/firedrakeproject/ufl.git@pbrubeck/fix/indexed-conditional
 
       # - name: Install DOLFINx
       #   uses: jorgensd/actions/install-dolfinx@v0.4
@@ -79,7 +79,7 @@ jobs:
       #     petsc_arch: linux-gnu-real64-32
       
       - name: Install dolfiny
-        run: pip install .[all] --break-system-packages
+        run: python3 -m pip install .[all]
       
       - name: Run plasticity
         working-directory: demo/plasticity
