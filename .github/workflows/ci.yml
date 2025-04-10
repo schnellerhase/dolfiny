@@ -41,7 +41,15 @@ jobs:
       
       - name: Run plasticity
         working-directory: demo/plasticity
-        run: python solid_plasticity_monolithic.py
+        run: python3 solid_plasticity_monolithic.py
+
+      - name: Run beam
+        working-directory: demo/beam
+        run: python3 beam_curved_finitestrain_bstar.py
+      
+      - name: Run continuation
+        working-directory: demo/continuation
+        run: python3 continuation_planartruss_disp.py
 
   test-new-ufl:
     runs-on: ubuntu-latest
@@ -83,5 +91,12 @@ jobs:
       
       - name: Run plasticity
         working-directory: demo/plasticity
-        run: python solid_plasticity_monolithic.py
+        run: python3 solid_plasticity_monolithic.py
 
+      - name: Run beam
+        working-directory: demo/beam
+        run: python3 beam_curved_finitestrain_bstar.py
+      
+      - name: Run continuation
+        working-directory: demo/continuation
+        run: python3 continuation_planartruss_disp.py
