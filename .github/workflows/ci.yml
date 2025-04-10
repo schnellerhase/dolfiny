@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/fenics/dolfinx/dev-env:current-mpich
     env:
-      PETSC_ARCH: linux-gnu-real64-32
+      CC: cc
+      CXX: c++
       OMPI_ALLOW_RUN_AS_ROOT: 1
       OMPI_ALLOW_RUN_AS_ROOT_CONFIRM: 1
       OMPI_MCA_rmaps_base_oversubscribe: 1
@@ -17,8 +18,8 @@ jobs:
       OMPI_MCA_hwloc_base_binding_policy: none
       HDF5_MPI: "ON"
       HDF5_DIR: "/usr/local/"
-      PYTHONPATH: "/usr/local/dolfinx-${PETSC_ARCH}/lib/python3.12/dist-packages:/usr/local/lib"
-      LD_LIBRARY_PATH: "/usr/local/petsc/${PETSC_ARCH}/lib/:/usr/local"
+      PYTHONPATH: "/usr/local/dolfinx-linux-gnu-real64-32/lib/python3.12/dist-packages:/usr/local/lib"
+      LD_LIBRARY_PATH: "/usr/local/petsc/linux-gnu-real64-32/lib/:/usr/local"
       DEB_PYTHON_INSTALL_LAYOUT: deb_system
     steps: 
       - uses: actions/checkout@v4
@@ -39,7 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/fenics/dolfinx/dev-env:current-mpich
     env:
-      PETSC_ARCH: linux-gnu-real64-32
+      CC: cc
+      CXX: c++
       OMPI_ALLOW_RUN_AS_ROOT: 1
       OMPI_ALLOW_RUN_AS_ROOT_CONFIRM: 1
       OMPI_MCA_rmaps_base_oversubscribe: 1
@@ -49,8 +51,8 @@ jobs:
       OMPI_MCA_hwloc_base_binding_policy: none
       HDF5_MPI: "ON"
       HDF5_DIR: "/usr/local/"
-      PYTHONPATH: "/usr/local/dolfinx-${PETSC_ARCH}/lib/python3.12/dist-packages:/usr/local/lib"
-      LD_LIBRARY_PATH: "/usr/local/petsc/${PETSC_ARCH}/lib/:/usr/local"
+      PYTHONPATH: "/usr/local/dolfinx-linux-gnu-real64-32/lib/python3.12/dist-packages:/usr/local/lib"
+      LD_LIBRARY_PATH: "/usr/local/petsc/linux-gnu-real64-32/lib/:/usr/local"
       DEB_PYTHON_INSTALL_LAYOUT: deb_system
     steps: 
       - uses: actions/checkout@v4
