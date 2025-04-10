@@ -28,6 +28,7 @@ jobs:
         uses: jorgensd/actions/install-dolfinx@v0.4
         with:
           ufl: be83aefdc4fceaab5458025703ff8fbb029e0c5a
+          petsc_arch: linux-gnu-real64-32
 
       - name: Install dolfiny
         run: pip install .[all]
@@ -62,6 +63,7 @@ jobs:
         with:
           ufl-repository: firedrakeproject/ufl
           ufl: pbrubeck/fix/indexed-conditional
+          petsc_arch: linux-gnu-real64-32
       
       - name: Install dolfiny
         run: pip install .[all]
