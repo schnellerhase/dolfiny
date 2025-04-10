@@ -1,0 +1,25 @@
+name: CI
+
+on: [push]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    container: ghcr.io/fenics/dolfinx/dev-env:current-mpich
+
+    steps: 
+      - uses: actions/checkout@v4
+
+      - name: Install DOLFINx
+        uses: jorgensd/actions/install-dolfinx@v0.4
+        with:
+          ufl-repository: firedrakeproject/ufl
+          ufl: pbrubeck/fix/indexed-conditional
+      
+      - name: Install dolfiny
+        run: pip install .[all]
+      
+      - name: Run plasticity
+        working-directory: demo/plasticity
+        run: python solid_plasticity_monolithic.py
+
